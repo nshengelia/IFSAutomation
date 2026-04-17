@@ -3,7 +3,8 @@ namespace IFS.Automation.Config;
 public static class ApiConfig
 {
     public static string BaseUrl =>
-        Environment.GetEnvironmentVariable("API_BASEURL")
-        ?? ConfigurationHelper.Configuration["ApiConfig:BaseUrl"]
-        ?? throw new Exception("ApiConfig:BaseUrl is not configured");
+        Environment.GetEnvironmentVariable("API_BASEURL") is { Length: > 0 } envUrl
+            ? envUrl
+            : ConfigurationHelper.Configuration["ApiConfig:BaseUrl"]
+              ?? throw new Exception("ApiConfig:BaseUrl is not configured");
 }
