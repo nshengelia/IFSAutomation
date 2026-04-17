@@ -1,0 +1,8 @@
+bin/
+obj/
+Logs/
+.idea/
+.DS_Store
+Thumbs.db
+TestResults/
+appsettings.local.json
