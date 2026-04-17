@@ -1,6 +1,9 @@
 name: Smoke Tests
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -27,8 +30,8 @@ jobs:
       - name: Build
         run: dotnet build ./ifs-automation.csproj --no-restore --configuration Release
 
-      - name: Run smoke tests (PR)
-        if: github.event_name == 'pull_request'
+      - name: Run smoke tests (push / PR)
+        if: github.event_name == 'push' || github.event_name == 'pull_request'
         run: dotnet test ./ifs-automation.csproj --no-build --configuration Release --filter "Category=smoke" --logger "console;verbosity=normal"
         env:
           API_BASEURL: ${{ secrets.API_BASEURL }}
