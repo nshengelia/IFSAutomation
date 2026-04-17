@@ -1,16 +1,15 @@
 name: Smoke Tests
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   smoke:
-    name: Run Smoke Tests
+    name: Run Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -23,13 +22,20 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore ./ifs-automation.csproj
 
       - name: Build
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build ./ifs-automation.csproj --no-restore --configuration Release
 
-      - name: Run smoke tests
-        run: dotnet test --no-build --configuration Release --filter "Category=smoke" --logger "console;verbosity=normal"
+      - name: Run smoke tests (PR)
+        if: github.event_name == 'pull_request'
+        run: dotnet test ./ifs-automation.csproj --no-build --configuration Release --filter "Category=smoke" --logger "console;verbosity=normal"
+        env:
+          API_BASEURL: ${{ secrets.API_BASEURL }}
+
+      - name: Run all tests (scheduled)
+        if: github.event_name == 'schedule'
+        run: dotnet test ./ifs-automation.csproj --no-build --configuration Release --logger "console;verbosity=normal"
         env:
           API_BASEURL: ${{ secrets.API_BASEURL }}
 

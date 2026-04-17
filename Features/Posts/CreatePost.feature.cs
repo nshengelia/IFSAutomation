@@ -75,12 +75,14 @@ namespace IFS.Automation.Features.Posts
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create a new post successfully")]
+        [NUnit.Framework.CategoryAttribute("smoke")]
         public void CreateANewPostSuccessfully()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new post successfully", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 3
+#line 4
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -90,16 +92,16 @@ namespace IFS.Automation.Features.Posts
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 5
     testRunner.Given("I have a valid post payload", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 5
+#line 6
     testRunner.When("I send a POST request to /posts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 6
+#line 7
     testRunner.Then("the response status code should be 201 Created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 7
+#line 8
     testRunner.And("the response body should contain the created post data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -113,7 +115,7 @@ namespace IFS.Automation.Features.Posts
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify created post data", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 9
+#line 10
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -135,10 +137,10 @@ namespace IFS.Automation.Features.Posts
                 table1.AddRow(new string[] {
                             "body",
                             "Test Body"});
-#line 10
+#line 11
     testRunner.Given("I have a post payload with:", ((string)(null)), table1, "Given ");
 #line hidden
-#line 15
+#line 16
     testRunner.When("I send a POST request to /posts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -153,7 +155,7 @@ namespace IFS.Automation.Features.Posts
                 table2.AddRow(new string[] {
                             "body",
                             "Test Body"});
-#line 16
+#line 17
     testRunner.Then("the response should contain:", ((string)(null)), table2, "Then ");
 #line hidden
             }

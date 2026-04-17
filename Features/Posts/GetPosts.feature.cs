@@ -75,12 +75,14 @@ namespace IFS.Automation.Features.Posts
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Get all posts successfully")]
+        [NUnit.Framework.CategoryAttribute("smoke")]
         public void GetAllPostsSuccessfully()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get all posts successfully", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 3
+#line 4
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -90,16 +92,16 @@ namespace IFS.Automation.Features.Posts
             else
             {
                 this.ScenarioStart();
-#line 4
+#line 5
     testRunner.Given("the API base URL is configured", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 5
+#line 6
     testRunner.When("I send a GET request to /posts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 6
+#line 7
     testRunner.Then("the response status code should be 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 7
+#line 8
     testRunner.And("the response should contain a list of posts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -113,7 +115,7 @@ namespace IFS.Automation.Features.Posts
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify number of posts", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 9
+#line 10
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -123,13 +125,13 @@ namespace IFS.Automation.Features.Posts
             else
             {
                 this.ScenarioStart();
-#line 10
+#line 11
     testRunner.Given("the API base URL is configured", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 11
+#line 12
     testRunner.When("I send a GET request to /posts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 12
+#line 13
     testRunner.Then("the response should contain exactly 100 posts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -143,7 +145,7 @@ namespace IFS.Automation.Features.Posts
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify post structure", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 14
+#line 15
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -153,10 +155,10 @@ namespace IFS.Automation.Features.Posts
             else
             {
                 this.ScenarioStart();
-#line 15
+#line 16
     testRunner.Given("the API base URL is configured", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 16
+#line 17
     testRunner.When("I send a GET request to /posts", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -167,7 +169,7 @@ namespace IFS.Automation.Features.Posts
                             "title"});
                 table3.AddRow(new string[] {
                             "body"});
-#line 17
+#line 18
     testRunner.Then("each post should contain the following fields:", ((string)(null)), table3, "Then ");
 #line hidden
             }
